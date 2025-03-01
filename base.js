@@ -10,6 +10,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const instagramLink = document.querySelector('.instagram-link'); // Ссылка на Instagram
   const tiktokLink = document.querySelector('.tiktok-link'); // Ссылка на TikTok
 
+  // Получаем элемент изображения профиля
+  const profileImg = document.querySelector('.profile-img'); // Изображение профиля
+
+  // Исходная и новая картинки
+  const originalImage = 'bec8f4da6c81d459138f6b062f3eb5c3.jpg';
+  const newImage = 'https://i.pinimg.com/originals/08/5d/bd/085dbd6c04d37c531841e0dc751ea728.gif';
+
+  // Загружаем сохраненное значение картинки из localStorage
+  let currentImage = localStorage.getItem('currentImage') || originalImage;
+
+  // Устанавливаем начальное значение картинки
+  profileImg.src = currentImage;
+
+  // Флаг для отслеживания текущего состояния
+  let isOriginalImage = currentImage === originalImage;
+
+  // Добавляем обработчик клика на изображение профиля
+  profileImg.addEventListener('click', () => {
+    if (isOriginalImage) {
+      // Меняем картинку на новую
+      profileImg.src = newImage;
+      currentImage = newImage;
+    } else {
+      // Возвращаем исходную картинку
+      profileImg.src = originalImage;
+      currentImage = originalImage;
+    }
+    // Сохраняем текущую картинку в localStorage
+    localStorage.setItem('currentImage', currentImage);
+    // Меняем состояние флага
+    isOriginalImage = !isOriginalImage;
+  });
+
   // Функция для загрузки значений из localStorage
   const loadCounters = () => {
     if (localStorage.getItem('likes')) {
