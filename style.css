@@ -12,7 +12,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("https://i.pinimg.com/originals/0a/dd/ed/0added3a3851a997ad32af496c74d149.gif"); 
+  background-image: url("https://i.pinimg.com/originals/0a/dd/ed/0added3a3851a997ad32af496c74d149.gif"); 
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .profile-card {
   display: flex;
@@ -131,7 +133,6 @@ body {
     align-items: center;
     color: #ffffff;
     padding: 0 20px;
-    border-right: 2px solid #f9d6ff;
 }
 .data i {
     font-size: 18px;
